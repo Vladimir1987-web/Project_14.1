@@ -28,4 +28,5 @@ class Product:
         """Сеттер для цены продукта с проверкой."""
         if int(price) <= 0:
             print("Цена не должна быть нулевая или отрицательная")
-        self.__price = price
+        else:
+            self.__price = price
