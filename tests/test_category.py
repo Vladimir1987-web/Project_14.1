@@ -5,6 +5,7 @@ from src.product import Product
 
 product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
 product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+product4 = Product("55\" QLED 4K", "Фоновая подсветка", 123000.0, 7)
 
 
 @pytest.fixture
@@ -19,8 +20,16 @@ def category1():
 def test_category_init(category1):
     assert category1.name == "Смартфоны"
     assert category1.description == (
-        "Смартфоны, как средство не только коммуникации," " но и получения дополнительных функций для удобства жизни"
+        "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни"
     )
-    assert category1.products == [product1, product2]
+    assert (category1.products == 'Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт.. Iphone 15, 210000.0 '
+                                  'руб. Остаток: 8 шт.')
     assert category1.category_count == 1
     assert category1.product_count == 2
+
+
+def test_category_add_product(category1):
+    category1.add_product(product4)
+    assert category1.product_count == 5
+    assert (category1.products == 'Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт.. Iphone 15, 210000.0 '
+                                  'руб. Остаток: 8 шт.. 55" QLED 4K, 123000.0 руб. Остаток: 7 шт.')
