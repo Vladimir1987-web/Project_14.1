@@ -25,3 +25,11 @@ def test_product_price_error_message(new_product, capfd):
     new_product.price = 0
     captured = capfd.readouterr()
     assert "Цена не должна быть нулевая или отрицательная" in captured.out
+
+
+def test_product_str(products_1):
+    assert str(products_1) == 'Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт.'
+
+
+def test_product_add(products_1, products_2):
+    assert products_1 + products_2 == 2580000.0
