@@ -8,3 +8,4 @@
 ```pip install -r requirements.txt```
 ## Использование:
 Данный проект состоит из двух модулей: product.py и category.py, в которых созданы классы Product и Category.
+От класса Product добавлены два дочерних класса Smartphone и LawnGrass.
