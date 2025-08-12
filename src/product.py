@@ -1,4 +1,6 @@
 class Product:
+    """Класс для создания товаров"""
+
     name: str
     description: str
     price: float
@@ -20,11 +22,14 @@ class Product:
         return cls(name, description, price, quantity)
 
     def __str__(self):
-        return f'{self.name}, {self.__price} руб. Остаток: {self.quantity} шт.'
+        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
 
     def __add__(self, other):
         """Метод возвращает сумму произведений цены на количество у двух объектов"""
-        return self.__price * self.quantity + other.__price * other.quantity
+        if type(self) is type(other):
+            return self.__price * self.quantity + other.__price * other.quantity
+        else:
+            raise TypeError
 
     @property
     def price(self):
@@ -37,3 +42,22 @@ class Product:
             print("Цена не должна быть нулевая или отрицательная")
         else:
             self.__price = price
+
+
+class Smartphone(Product):
+
+    def __init__(self, name, description, price, quantity, efficiency, model, memory, color):
+        super().__init__(name, description, price, quantity)
+        self.efficiency = efficiency
+        self.model = model
+        self.memory = memory
+        self.color = color
+
+
+class LawnGrass(Product):
+
+    def __init__(self, name, description, price, quantity, country, germination_period, color):
+        super().__init__(name, description, price, quantity)
+        self.country = country
+        self.germination_period = germination_period
+        self.color = color

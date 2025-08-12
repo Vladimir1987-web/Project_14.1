@@ -1,4 +1,4 @@
-from src.product import Product
+from src.product import LawnGrass, Product, Smartphone
 
 
 class Category:
@@ -21,11 +21,14 @@ class Category:
         for prod in self.__products:
             quantity_prod += prod.quantity
 
-        return f'{self.name}, количество продуктов: {quantity_prod} шт.'
+        return f"{self.name}, количество продуктов: {quantity_prod} шт."
 
     def add_product(self, product: Product):
-        self.__products.append(product)
-        Category.product_count += 1
+        if isinstance(product, Smartphone) or isinstance(product, LawnGrass) or isinstance(product, Product):
+            self.__products.append(product)
+            Category.product_count += 1
+        else:
+            raise TypeError
 
     @property
     def products(self):
