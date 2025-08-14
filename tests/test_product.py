@@ -49,7 +49,7 @@ def test_smartphone_init(smartphone1):
     assert smartphone1.color == "Серый"
 
 
-def test_lawngrass_init(grass1):
+def test_lawngras_init(grass1):
     assert grass1.name == "Газонная трава"
     assert grass1.description == "Элитная трава для газона"
     assert grass1.price == 500.0
