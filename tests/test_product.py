@@ -2,6 +2,7 @@ import pytest
 
 
 def test_product_init(products_1):
+    """Проверка работы класса"""
     assert products_1.name == "Samsung Galaxy S23 Ultra"
     assert products_1.description == "256GB, Серый цвет, 200MP камера"
     assert products_1.price == 180000.0
@@ -49,7 +50,7 @@ def test_smartphone_init(smartphone1):
     assert smartphone1.color == "Серый"
 
 
-def test_lawngrass_init(grass1):
+def test_lawngras_init(grass1):
     assert grass1.name == "Газонная трава"
     assert grass1.description == "Элитная трава для газона"
     assert grass1.price == 500.0

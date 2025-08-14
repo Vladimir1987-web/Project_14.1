@@ -9,3 +9,5 @@
 ## Использование:
 Данный проект состоит из двух модулей: product.py и category.py, в которых созданы классы Product и Category.
 От класса Product добавлены два дочерних класса Smartphone и LawnGrass.
+## Тестирование
+Написаны тесты для модулей product.py и category.py.
