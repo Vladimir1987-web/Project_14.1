@@ -1,4 +1,8 @@
-class Product:
+from src.base_product import BaseProduct
+from src.print_mixin import PrintMixin
+
+
+class Product(BaseProduct, PrintMixin):
     """Класс для создания товаров"""
 
     name: str
@@ -10,11 +14,13 @@ class Product:
     def __init__(self, name, description, price, quantity):  # Конструктор
         self.name = name
         self.description = description
-        self.__price = price
+        self.__price = price  # приватный атрибут цены
         self.quantity = quantity
+        super().__init__()
 
     @classmethod
     def new_product(cls, product_data):
+        """Принимает на вход параметры товара в словаре и возвращает созданный объект класса Product."""
         name = product_data["name"]
         description = product_data["description"]
         price = product_data["price"]
@@ -22,6 +28,7 @@ class Product:
         return cls(name, description, price, quantity)
 
     def __str__(self):
+        """Выводит строковое отображение в определённом виде"""
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
 
     def __add__(self, other):
@@ -33,6 +40,7 @@ class Product:
 
     @property
     def price(self):
+        """Геттер выводит цену товара"""
         return self.__price
 
     @price.setter
