@@ -34,8 +34,8 @@ def test_category_add_product(category1):
     category1.add_product(product4)
     assert category1.product_count == 5
     assert (
-        category1.products == 'Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт.. Iphone 15,'
-                              ' 210000.0 руб. Остаток: 8 шт.. 55" QLED 4K, 123000.0 руб. Остаток: 7 шт.'
+        category1.products == "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт.. Iphone 15,"
+        ' 210000.0 руб. Остаток: 8 шт.. 55" QLED 4K, 123000.0 руб. Остаток: 7 шт.'
     )
 
 
