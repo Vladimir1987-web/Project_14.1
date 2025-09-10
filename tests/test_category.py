@@ -5,7 +5,7 @@ from src.product import Product
 
 product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
 product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
-product4 = Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)
+product3 = Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)
 
 
 @pytest.fixture
@@ -31,7 +31,7 @@ def test_category_init(category1):
 
 
 def test_category_add_product(category1):
-    category1.add_product(product4)
+    category1.add_product(product3)
     assert category1.product_count == 5
     assert (
         category1.products == "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт.. Iphone 15,"
@@ -46,3 +46,10 @@ def test_category_str(category1):
 def test_category_add_product_error(category1):
     with pytest.raises(TypeError):
         category1.add_product("Not a product")
+
+
+def average_price_tag():
+    category1 = Category("Смартфоны", "Категория смартфонов", [product1, product2, product3])
+    assert category1.middle_price() == 140333.33333333334
+    category_empty = Category("Пустая категория", "Категория без продуктов", [])
+    assert category_empty.middle_price() == 0
