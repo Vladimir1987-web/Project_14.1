@@ -1,5 +1,7 @@
 import pytest
 
+from src.product import Product
+
 
 def test_product_init(products_1):
     """Проверка работы класса"""
@@ -63,3 +65,9 @@ def test_lawngras_init(grass1):
 def test_product_add_error(smartphone1, grass1):
     with pytest.raises(TypeError):
         invalid_sum = smartphone1 + grass1
+
+
+def test_product_not_quantity():
+    with (pytest.raises(ValueError) as excinfo):
+        products = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 0)
+        assert str(excinfo.value) == "Товар с нулевым количеством не может быть добавлен."
